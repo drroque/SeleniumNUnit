@@ -17,9 +17,6 @@ namespace SeleniumNUnit.pageObjects
         }
 
 
-        //IWebElement successMessage = driver.Value.FindElement(By.CssSelector(".page-body .result"));
-        //String success = successMessage.Text;
-
         [FindsBy(How = How.CssSelector, Using = ".page-body .result")]
         private IWebElement successMsgElem;
 
