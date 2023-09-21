@@ -1,0 +1,5 @@
+bin/
+obj/
+index.html
+.DS_Store
+.vs/

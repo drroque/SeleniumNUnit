@@ -1,0 +1,7 @@
+﻿{
+  "validEmail": "test123@test.com",
+  "validPass": "testtest",
+  "invalidEmail": "x",
+  "invalidPass": "test",
+  "testArray":  ["item1","item2"]
+}
