@@ -29,6 +29,8 @@ namespace SeleniumNUnit.util
             return productsList.ToArray();
         }
 
+
+
     }
 }
 

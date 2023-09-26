@@ -130,7 +130,7 @@ namespace SeleniumNUnit.util
 
             }
             extent.Flush(); // instructs ExtentReports write the test information to a destination
-            
+
             driver.Value.Quit();
         }
 

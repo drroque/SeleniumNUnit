@@ -57,17 +57,20 @@ namespace Register
 
         }
 
-        [Test, Category("Negative")]
-        public void TC03()
+        [Test, TestCaseSource("AddTestDataConfig"), Category("Negative")]
+        public void TC03(String invalidEmail, String invalidPass)
         {
             //Negative TC - Password Error
             HomePage homePage = new HomePage(getDriver());
             RegisterPage regPage = homePage.goToRegister();
 
             regPage.commonFillOuts();
-            regPage.getEmail().SendKeys("test@test.com");
-            regPage.getPass().SendKeys("12345");
-            regPage.getCPass().SendKeys("12345");
+            regPage.getEmail().SendKeys(invalidEmail);
+            regPage.getPass().SendKeys(invalidPass);
+            regPage.getCPass().SendKeys(invalidPass);
+            //regPage.getEmail().SendKeys("test@test.com");
+            //regPage.getPass().SendKeys("12345");
+            //regPage.getCPass().SendKeys("12345");
             regPage.getRegButton().Click();
 
             Boolean elemDisp = driver.Value.FindElement(By.Id("Password-error")).Displayed;

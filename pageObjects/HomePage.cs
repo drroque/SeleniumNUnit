@@ -26,11 +26,22 @@ namespace SeleniumNUnit.pageObjects
         //    return register;
         //}
 
+        [FindsBy(How = How.CssSelector, Using = "a.ico-login")]
+        private IWebElement login;
+
         public RegisterPage goToRegister()
         {
             register.Click();
             return new RegisterPage(driver);
         }
+
+        public LoginPage goToLogin()
+        {
+            login.Click();
+            return new LoginPage(driver);
+        }
+
+
 
 
     }

@@ -20,6 +20,14 @@ namespace SeleniumNUnit.pageObjects
         [FindsBy(How = How.CssSelector, Using = ".page-body .result")]
         private IWebElement successMsgElem;
 
+        [FindsBy(How = How.CssSelector, Using = "a.ico-login")]
+        private IWebElement login;
+
+        public void goToLogin()
+        {
+            login.Click();
+        }
+
         //public IWebElement getSuccessMsgElem()
         //{
         //    return successMsgElem;
