@@ -14,6 +14,16 @@ namespace Register
     public class RegisterTest : Base
 
     {
+        public static IEnumerable<TestCaseData> AddTestDataConfig()
+        {
+            yield return new TestCaseData(getDataParser().extractData("invalidEmail"), getDataParser().extractData("validPass"));
+            yield return new TestCaseData(getDataParser().extractData("invalidEmail"), getDataParser().extractData("invalidPass"));
+        }
+
+        public static IEnumerable<TestCaseData> AddTestDataConfig2()
+        {
+            yield return new TestCaseData(getDataParser().extractData("validEmail"), getDataParser().extractData("validPass"));
+        }
 
 
         [Test, Category("Positive")]
@@ -22,20 +32,13 @@ namespace Register
             String expectedURL = "https://demo.nopcommerce.com/register?returnUrl=%2F";
 
             HomePage homePage = new HomePage(getDriver());
-            
-
-            //Click Register link
             homePage.goToRegister();
-            //driver.FindElement(By.CssSelector("a.ico-register")).Click();
-            
             IWebElement link = driver.Value.FindElement(By.LinkText("Register"));
             String hrefAttr = link.GetAttribute("href");
             //TestContext.Progress.WriteLine(hrefAttr);
 
             Assert.That(actual: hrefAttr, Is.EqualTo(expectedURL));
         }
-
-        
 
 
         [Test, TestCaseSource("AddTestDataConfig"), Category("Negative")]
@@ -93,17 +96,6 @@ namespace Register
             String actualPageURL = driver.Value.Url;
 
             Assert.That(actualPageURL, Is.EqualTo(expectedPageURL), "Page URL doesn't match");
-        }
-
-        public static IEnumerable<TestCaseData> AddTestDataConfig()
-        {
-            yield return new TestCaseData(getDataParser().extractData("invalidEmail"), getDataParser().extractData("validPass"));
-            yield return new TestCaseData(getDataParser().extractData("invalidEmail"), getDataParser().extractData("invalidPass"));
-        }
-
-        public static IEnumerable<TestCaseData> AddTestDataConfig2()
-        {
-            yield return new TestCaseData(getDataParser().extractData("validEmail"), getDataParser().extractData("validPass"));
         }
 
 

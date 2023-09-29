@@ -7,6 +7,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Login
 {
+    [Parallelizable(ParallelScope.Children)]
     public class LoginTest : Base
     {
 
@@ -30,7 +31,6 @@ namespace Login
         [Test, TestCaseSource(nameof(AddTestDataConfig)), Category("Positive")]
         public void TC06(String validEmail, String validPass)
         {
-
 
             String expectedPageURL = "https://demo.nopcommerce.com/";
 
