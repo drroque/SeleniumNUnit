@@ -36,7 +36,7 @@ namespace Login
 
             HomePage homePage = new HomePage(getDriver());
             LoginPage loginPage = homePage.goToLogin();
-            loginPage.validLogin(validEmail, validPass);
+            ProductCategoriesPage pcPage = loginPage.validLogin(validEmail, validPass);
 
             String actualPageURL = driver.Value.Url;
             //Assert.That(actualPageURL, Is.EqualTo(expectedPageURL), "Page URL doesn't match");

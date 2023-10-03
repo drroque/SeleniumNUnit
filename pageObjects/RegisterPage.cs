@@ -155,6 +155,7 @@ namespace SeleniumNUnit.pageObjects
             lName.SendKeys("test");
             company.SendKeys("test");
                         dropdown1.SelectByText("1");
+            
             dropdown2.SelectByText("January");
             dropdown3.SelectByText("2000");
         }

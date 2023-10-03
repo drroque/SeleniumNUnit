@@ -30,7 +30,6 @@
   <ItemGroup>
     <Compile Remove="Usings.cs" />
     <Compile Remove="tests\Logout.cs" />
-    <Compile Remove="tests\AddToCart.cs" />
     <Compile Remove="Checkout.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -41,7 +40,6 @@
   <ItemGroup>
     <None Include="Usings.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
     <None Include="tests\Logout.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <None Include="tests\AddToCart.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
     <None Include="Checkout.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
   </ItemGroup>
   <ItemGroup>

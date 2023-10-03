@@ -49,11 +49,12 @@ namespace SeleniumNUnit.pageObjects
             return new RegisterPage(driver);
         }
 
-        public void validLogin(String validEmail, String validPass)
+        public ProductCategoriesPage validLogin(String validEmail, String validPass)
         {
             getEmail().SendKeys(validEmail);
             getPass().SendKeys(validPass);
             getLogInButton().Click();
+            return new ProductCategoriesPage(driver);
         }
 
     }

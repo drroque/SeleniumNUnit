@@ -19,10 +19,9 @@ namespace SeleniumNUnit.util
 	public class Base
 	{
         public static ExtentReports extent;
-        public ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
         public static ExtentSparkReporter htmlReporter;
         private static readonly object extentLock = new object();
-
+        public ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
         //public IWebDriver driver;
         public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
 
@@ -165,8 +164,8 @@ namespace SeleniumNUnit.util
 
             }
 
-            
-            driver.Value.Close();
+
+            //driver.Value.Close();
         }
 
         [OneTimeTearDown]

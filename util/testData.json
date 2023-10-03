@@ -3,5 +3,9 @@
   "validPass": "testtest",
   "invalidEmail": "x",
   "invalidPass": "test",
-  "testArray":  ["item1","item2"]
+  "city": "test",
+  "address":  "test",
+  "zip": "test",
+  "phone":  "test",
+  "billingInfo":  ["test1","test2","test3","test4","Philippines"]
 }
