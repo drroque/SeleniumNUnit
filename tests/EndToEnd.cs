@@ -93,6 +93,13 @@ namespace EndToEnd
             checkoutPage.getPaymentInfoContinueBtn().Click();
             checkoutPage.getConfirmOrderBtn().Click();
 
+            Assert.That(checkoutPage.getThankYouMessage().Text, Is.EqualTo("Thank you"));
+
+            checkoutPage.getLogoutBtn().Click();
+
+            actualPageURL = driver.Value.Url;
+
+            Assert.That(actualPageURL, Is.EqualTo(expectedPageURL));
         }
 
         [Test]
