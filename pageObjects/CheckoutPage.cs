@@ -75,7 +75,11 @@ namespace SeleniumNUnit.pageObjects
         [FindsBy(How = How.CssSelector, Using = "button.button-1.confirm-order-next-step-button")]
         private IWebElement btnConfirmOrder;
 
-        
+        [FindsBy(How = How.XPath, Using = "//div[@class='page checkout-page order-completed-page']/div/h1")]
+	private IWebElement thankYouMessage;
+
+	[FindsBy(How = How.CssSelector, Using = "a[href='/logout']")]
+	private IWebElement btnLogout;
         
 
 
@@ -136,6 +140,15 @@ namespace SeleniumNUnit.pageObjects
             return btnConfirmOrder;
         }
 
+	public IWebElement getThankYouMessage() 
+	{ 
+    	    return thankYouMessage;
+	}
+
+	public IWebElement getLogoutBtn() 
+	{
+            return btnLogout;
+	}
     }
 }
 
