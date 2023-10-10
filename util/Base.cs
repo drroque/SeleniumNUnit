@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Threading;
 using AventStack.ExtentReports;
@@ -16,8 +16,8 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace SeleniumNUnit.util
 {
-	public class Base
-	{
+    public class Base
+    {
         public static ExtentReports extent;
         public static ExtentSparkReporter htmlReporter;
         private static readonly object extentLock = new object();
@@ -111,12 +111,12 @@ namespace SeleniumNUnit.util
             extent.AddSystemInfo("Host Name", "Local Host");
             extent.AddSystemInfo("Environment", "Test");
         }
-         
 
 
 
 
-        [SetUp]        
+
+        [SetUp]
         public void StartBrowser()
         {
 
@@ -128,7 +128,7 @@ namespace SeleniumNUnit.util
             driver.Value.Manage().Window.Maximize();
             driver.Value.Url = "https://demo.nopcommerce.com";
 
-            
+
 
             lock (extentLock)
             {
@@ -139,7 +139,7 @@ namespace SeleniumNUnit.util
 
         [TearDown]
         public void AfterTest()
-        {  
+        {
             TestStatus status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = TestContext.CurrentContext.Result.StackTrace;
 
@@ -149,7 +149,7 @@ namespace SeleniumNUnit.util
 
             lock (extentLock)
             {
-                extent.Flush(); // instructs ExtentReports write the test information to a destination
+                /*extent.Flush();*/ // instructs ExtentReports write the test information to a destination
 
                 if (status == TestStatus.Failed)
                 {
@@ -162,17 +162,18 @@ namespace SeleniumNUnit.util
                     test.Value.Info("Test Passed");
                 }
 
+                extent.Flush();
             }
 
 
-            //driver.Value.Close();
+            driver.Value.Close();
         }
 
-        [OneTimeTearDown]
+/*        [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-           
-        }
+
+        }*/
 
 
         //[OneTimeTearDown]
@@ -184,4 +185,3 @@ namespace SeleniumNUnit.util
 
     }
 }
-
