@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using OpenQA.Selenium;
@@ -18,11 +18,19 @@ namespace Register
         {
             yield return new TestCaseData(getDataParser().extractData("invalidEmail"), getDataParser().extractData("validPass"));
             yield return new TestCaseData(getDataParser().extractData("invalidEmail"), getDataParser().extractData("invalidPass"));
+    
         }
 
         public static IEnumerable<TestCaseData> AddTestDataConfig2()
         {
             yield return new TestCaseData(getDataParser().extractData("validEmail"), getDataParser().extractData("validPass"));
+        }
+
+        public static IEnumerable<TestCaseData> AddTestDataConfig3()
+        {
+            yield return new TestCaseData(getDataParser().extractData("invalidEmail"), getDataParser().extractData("invalidPass"));
+            yield return new TestCaseData(getDataParser().extractData("validEmail"), getDataParser().extractData("invalidPass"));
+
         }
 
 
@@ -60,7 +68,7 @@ namespace Register
 
         }
 
-        [Test, TestCaseSource("AddTestDataConfig"), Category("Negative")]
+        [Test, TestCaseSource("AddTestDataConfig3"), Category("Negative")]
         public void TC03(String invalidEmail, String invalidPass)
         {
             //Negative TC - Password Error
